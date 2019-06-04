@@ -7,10 +7,10 @@ namespace Domain
 {
     public class Comment
     {
-        public DataSet GetAllCommentByStatusId(Entity.Entities.Status obj)
+        public DataSet GetAllCommentByStatusId(Entity.Entities.Comment obj)
         {
             DbAccess conn = new DbAccess();
-            DataSet result = conn.GetData_Status(obj);    
+            DataSet result = conn.GetData_Comment(obj);    
             return result;
         }
 

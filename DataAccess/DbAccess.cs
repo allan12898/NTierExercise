@@ -13,12 +13,37 @@ namespace DataAccess
             string sql = "select * from tStatus where Id=" + obj.Id + "order by Id asc";
             SqlDataAdapter Adapter = new SqlDataAdapter(sql, DbConn());
             ;
+
             Adapter.Fill(result);
+            return result;
+        }
+        public DataSet GetData_AllStatus()
+        {
+            DataSet result = new DataSet();
+            string sql = "select * from tStatus order by Id asc";
+            SqlDataAdapter Adapter = new SqlDataAdapter(sql, DbConn());
+            ;
+
+            Adapter.Fill(result);
+            DbConn().Close();
 
             return result;
         }
+        public DataSet GetData_Comment(Comment obj)
+        {
+            DataSet result = new DataSet();
+            string sql = "select * from tComment where Id_Status=" + obj.StatusId + "order by Id asc";
+            SqlDataAdapter Adapter = new SqlDataAdapter(sql, DbConn());
+            ;
 
-        
+            Adapter.Fill(result);
+            
+            return result;
+        }
+
+
+
+
         public SqlConnection DbConn()
         {
             try
@@ -26,9 +51,9 @@ namespace DataAccess
                 // Build connection string
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 builder.DataSource = "localhost";   // update me
-                builder.UserID = "sa";              // update me
-                builder.Password = "your_password";      // update me
-                builder.InitialCatalog = "master";
+                builder.UserID = "amendoza";              // update me
+                builder.Password = "Zeus.0701";      // update me
+                builder.InitialCatalog = "NTier";
 
                 // Connect to SQL
                 Console.Write("Connecting to SQL Server ... ");
@@ -43,6 +68,10 @@ namespace DataAccess
                 return null;
             }
 
+        }
+        public void ConnClose()
+        {
+            DbConn().Close();
         }
     }
 }
