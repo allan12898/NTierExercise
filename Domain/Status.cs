@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using Entity.Entities;
+using Observer;
 
 namespace Domain
 {
     public class Status
     {
-        public DataSet GetAllStatus()
+        public DataTable GetAllStatus()
         {
             var data = new DbAccess();
             var result = data.GetData_AllStatus();
@@ -26,7 +27,8 @@ namespace Domain
 
         public void Post()
         {
-
+            ConcreteUserObserver obs = new ConcreteUserObserver();
+            obs.Notify();
         }
         public void Like()
         {

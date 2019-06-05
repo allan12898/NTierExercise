@@ -17,9 +17,9 @@ namespace DataAccess
             Adapter.Fill(result);
             return result;
         }
-        public DataSet GetData_AllStatus()
+        public DataTable GetData_AllStatus()
         {
-            DataSet result = new DataSet();
+            DataTable result = new DataTable();
             string sql = "select * from tStatus order by Id asc";
             SqlDataAdapter Adapter = new SqlDataAdapter(sql, DbConn());
             ;
@@ -50,15 +50,17 @@ namespace DataAccess
             {
                 // Build connection string
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "localhost";   // update me
-                builder.UserID = "amendoza";              // update me
-                builder.Password = "Zeus.0701";      // update me
-                builder.InitialCatalog = "NTier";
+                //builder.DataSource = "localhost";   // update me
+                //builder.UserID = "sa";              // update me
+                //builder.Password = "Password123";      // update me
+                //builder.InitialCatalog = "NTier";
+                string conn = "Data Source=localhost;Initial Catalog=NTier;Integrated Security=SSPI;";
+
 
                 // Connect to SQL
-                Console.Write("Connecting to SQL Server ... ");
-                SqlConnection connection = new SqlConnection(builder.ConnectionString);
-                Console.Write("Connected ");
+                //Console.Write("Connecting to SQL Server ... ");
+                SqlConnection connection = new SqlConnection(conn);
+                //Console.Write("Connected ");
 
                 return connection;
             }
