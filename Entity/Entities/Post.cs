@@ -8,7 +8,14 @@ namespace Entity.Entities
     public class Post : EntityBaseClass
     {
         private bool _like;
-        User usr = new User();
+        public string Content { get; set; }
+        public List<User> UserList = new List<User>();
+
+        public void AddObserver(User user)
+        {
+            UserList.Add(user);
+        }
+
 
         public int postID
         { get; set; }
@@ -27,15 +34,12 @@ namespace Entity.Entities
 
             }
         }
-        public List<User> getUser()
-        {
-            User obj = new User();
-
-            return obj.getUser();
-        }
         public void Notify()
         {
-            foreach (User user in getUser())
+
+            //UserList.ForEach(User => User.Update(this));
+
+            foreach (User user in UserList)
             {
                 user.Update(this);
             }
