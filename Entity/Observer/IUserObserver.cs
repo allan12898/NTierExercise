@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Entity.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Observer
+namespace Entity.Observer
 {
     public interface IUserObserver
     {
-        void Update();
+        void Update(Status obj);
     }
 }
