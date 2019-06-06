@@ -20,13 +20,11 @@ namespace Entity.Entities
             } set {
                 if (_like != value)
                 {
-                    _like = value;
                     Notify();
-                }
-                else
-                {
+                    _like = value;
                     
                 }
+
             }
         }
         public List<User> getUser()
@@ -37,8 +35,7 @@ namespace Entity.Entities
         }
         public void Notify()
         {
-            
-            foreach (var user in getUser())
+            foreach (User user in getUser())
             {
                 user.Update(this);
             }

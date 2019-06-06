@@ -9,6 +9,7 @@ namespace Entity.Entities
         public string Company { get; set; }
         public string Picture { get; set; }
         public List<Post> UserPost =  new List<Post>();
+
         public List<User> UserList = new List<User>();
 
 

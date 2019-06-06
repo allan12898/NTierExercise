@@ -16,10 +16,14 @@ namespace ObserverDesign
             //DataTable dt = result.Tables[0]; 
             //Console.WriteLine(result.);
             User user1 = new User();
+
             user1.UserPost.Add(new Post());
             user1.UserPost.Add(new Post());
+            user1.UserList.Add(user1);
             user1.UserPost[0].Like = true;
             user1.UserPost[0].Like = false;
+
+            //Console.Write(user1.UserPost[0].Like);
 
             //foreach (DataRow row in result.Rows)
             //{
