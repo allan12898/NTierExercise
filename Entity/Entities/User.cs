@@ -5,6 +5,10 @@ namespace Entity.Entities
 {
     public class User : EntityBaseClass 
     {
+        public User(string _name)
+        {
+            this.Name = _name;
+        }
 
         public string Name { get; set; }
         public string Company { get; set; }
@@ -12,7 +16,7 @@ namespace Entity.Entities
         public List<Post> UserPost =  new List<Post>();
         public void Update(Post obj)
         {
-            Console.WriteLine("Notified like of \"{0}\" " + "change to {1}", obj.Content, obj.Like);
+            Console.WriteLine("Notified {0} like of \"{1}\" " + "change to {2}", this.Name, obj.Content, obj.Like);
 
         }
 

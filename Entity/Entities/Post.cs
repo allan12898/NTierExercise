@@ -27,9 +27,10 @@ namespace Entity.Entities
             } set {
                 if (_like != value)
                 {
-                    Notify();
-                    _like = value;
                     
+                    _like = value;
+                    Notify();
+
                 }
 
             }
